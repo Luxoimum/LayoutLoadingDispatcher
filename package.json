@@ -3,7 +3,7 @@
   "version": "2.0.7",
   "description": "Loading layout dispatcher offer a provider and hooks to easy manage the loading screen in a website made with React",
   "keywords": [],
-  "main": "dist/index.js",
+  "main": "layout/index.js",
   "dependencies": {
     "@material-ui/core": "4.9.13",
     "react": "16.12.0",
@@ -23,7 +23,8 @@
   "scripts": {
     "build": "webpack --mode production",
     "dev": "webpack --mode development",
-    "prepublish": "babel src -d dist"
+    "prepublish": "babel src -d layout",
+    "help": "babel --help"
   },
   "browserslist": [
     ">0.2%",
