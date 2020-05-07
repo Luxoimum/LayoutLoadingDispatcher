@@ -22,11 +22,7 @@ export const LayoutContext = createContext({
   setLayoutState: () => {}
 });
 
-export function useLayout() {
-  return useContext(LayoutContext);
-}
-
-export function LayoutProvider({ children, state, customComponent, resize }) {
+export default function LayoutProvider({ children, state, customComponent, resize }) {
   const [layout, setLayout] = useState({
     state: state || {},
     isLoading: true,

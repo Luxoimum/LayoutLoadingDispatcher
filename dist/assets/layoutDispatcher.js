@@ -5,8 +5,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.useLayout = useLayout;
-exports.LayoutProvider = LayoutProvider;
+exports.default = LayoutProvider;
 exports.LayoutContext = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
@@ -54,10 +53,6 @@ var LayoutContext = (0, _react.createContext)({
   setLayoutState: function setLayoutState() {}
 });
 exports.LayoutContext = LayoutContext;
-
-function useLayout() {
-  return (0, _react.useContext)(LayoutContext);
-}
 
 function LayoutProvider(_ref) {
   var children = _ref.children,

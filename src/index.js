@@ -1,6 +1,4 @@
-import {
-  LayoutContext,
-  useLayout,
-  LayoutProvider
-} from "./assets/layoutDispatcher";
-export { LayoutContext, useLayout, LayoutProvider };
+import LayoutProvider from "./assets/layoutDispatcher";
+import useLayout from "./assets/useLayout";
+
+export { useLayout, LayoutProvider };
