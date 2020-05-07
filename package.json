@@ -1,9 +1,9 @@
 {
   "name": "@luxoimum/layout-loading-dispatcher",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "Loading layout dispatcher offer a provider and hooks to easy manage the loading screen in a website made with React",
   "keywords": [],
-  "main": "src/demo/index.js",
+  "main": "dist/index.js",
   "dependencies": {
     "@material-ui/core": "4.9.13",
     "react": "16.12.0",
