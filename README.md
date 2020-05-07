@@ -12,6 +12,8 @@ You can get started by clonning the repository or executing:
  
     npm i @luxoimum/laoyut-loading-dispatcher
     
+    yarn add @luxoimum/laoyut-loading-dispatcher
+    
 ## How to use it:
 
 Import and use the component "LayoutProvider" in the root of your app by this way:
