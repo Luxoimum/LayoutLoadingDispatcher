@@ -1,6 +1,6 @@
 {
-  "name": "laoyut-loading-dispatcher",
-  "version": "1.0.0",
+  "name": "@luxoimum/laoyut-loading-dispatcher",
+  "version": "1.0.1",
   "description": "Loading layout dispatcher. Offer a provider and hooks to easy manage the loading screen in a website made with React",
   "keywords": [],
   "main": "demo/src/index.js",
@@ -19,5 +19,20 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "browserslist": [">0.2%", "not dead", "not ie <= 11", "not op_mini all"]
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Luxoimum/LayoutLoadingDispatcher.git"
+  },
+  "author": "Federico Pereyra López",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Luxoimum/LayoutLoadingDispatcher/issues"
+  },
+  "homepage": "https://github.com/Luxoimum/LayoutLoadingDispatcher#readme"
 }
