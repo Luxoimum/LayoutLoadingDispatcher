@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { LayoutProvider, useLayout } from "../src/layoutDispatcher";
+import { LayoutProvider, useLayout } from "../assets/layoutDispatcher";
 import { Grid, Paper, Typography, Box, Button, Fade } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import grey from "@material-ui/core/colors/grey";
@@ -227,7 +227,7 @@ function CountdownLoadingDemo() {
   );
 }
 
-export default function Demo() {
+export function Demo1() {
   return (
     <LayoutProvider
       state={{ app: false }}

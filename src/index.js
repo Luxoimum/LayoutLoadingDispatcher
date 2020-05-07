@@ -2,5 +2,5 @@ import {
   LayoutContext,
   useLayout,
   LayoutProvider
-} from "./src/layoutDispatcher";
+} from "./assets/layoutDispatcher";
 export { LayoutContext, useLayout, LayoutProvider };

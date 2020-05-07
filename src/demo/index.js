@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import { Demo1 } from "../";
+import { Demo1 } from "./demo1";
 import { Typography, List, ListItem, ListItemText } from "@material-ui/core";
 
 const rootElement = document.getElementById("root");

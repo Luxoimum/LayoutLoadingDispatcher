@@ -1,23 +1,29 @@
 {
   "name": "@luxoimum/layout-loading-dispatcher",
-  "version": "1.0.8",
+  "version": "2.0.0",
   "description": "Loading layout dispatcher offer a provider and hooks to easy manage the loading screen in a website made with React",
   "keywords": [],
-  "main": "demo/src/index.js",
+  "main": "src/demo/index.js",
   "dependencies": {
     "@material-ui/core": "4.9.13",
     "react": "16.12.0",
-    "react-dom": "16.12.0",
-    "react-scripts": "3.0.1"
+    "react-dom": "16.12.0"
   },
   "devDependencies": {
-    "typescript": "3.8.3"
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-react": "^7.9.4",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^3.5.3",
+    "typescript": "3.8.3",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "build": "webpack --mode production",
+    "dev": "webpack --mode development",
+    "prepublish": "babel src -d dist"
   },
   "browserslist": [
     ">0.2%",
