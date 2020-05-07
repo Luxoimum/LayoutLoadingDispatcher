@@ -1,6 +1,11 @@
 # LayoutLoadingDispatcher
 Layout loading dispatcher offers a provider and a hook to easy manage the layout screen in a website using React.
 
+## Demo:
+
+You can find a demo in the "./demo" directory (im working to making it functional in the github static webpage) you can find it in codesandbox too in this link:
+
+[link to codesandbox demo!](https://codesandbox.io/s/laoyut-loading-dispatcher-w3vr2?file=/demo/src/index.js)
 
 ## Get started
 You can get started by clonning the repository or executing:
@@ -46,10 +51,11 @@ This functionality gives you powerful control of the loading screens regardless 
 
 ## Another props:
 
-### Resize:
+### resize:
 
 Keep you Spinner in the middle of the screen independently if you resize the window.
 
 ### customComponent: 
 
 You can add your own loading icon, text or React component to show at the screen meanwhile your web is loading. 
+
