@@ -5,7 +5,7 @@ Layout loading dispatcher offers a provider and a hook to easy manage the layout
 
 You can find a demo in the "./demo" directory (im working to making it functional in the github static webpage) you can find it in codesandbox too in this link:
 
-[link to codesandbox demo!](https://codesandbox.io/s/laoyut-loading-dispatcher-w3vr2?file=/demo/demo1.js)
+[link to codesandbox demo!](https://codesandbox.io/s/lld-demo-1-oc4qn)
 
 ## Get started
 You can get started by clonning the repository or executing:
