@@ -2,4 +2,5 @@
 /src/
 /public/
 /dist/
-./webpack.config.js
+/webpack.config.js/
+/.idea/
