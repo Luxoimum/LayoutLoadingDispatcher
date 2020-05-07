@@ -10,9 +10,9 @@ You can find a demo in the "./demo" directory (im working to making it functiona
 ## Get started
 You can get started by clonning the repository or executing:
  
-    npm i @luxoimum/laoyut-loading-dispatcher
+    npm i @luxoimum/layout-loading-dispatcher
     
-    yarn add @luxoimum/laoyut-loading-dispatcher
+    yarn add @luxoimum/layout-loading-dispatcher
     
 ## How to use it:
 
