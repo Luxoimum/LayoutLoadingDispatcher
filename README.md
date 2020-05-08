@@ -55,10 +55,6 @@ This functionality gives you powerful control of the loading screens regardless 
 
 ## Another props:
 
-### resize:
-
-Adjust the loading component to the center of the screen independently if you resize the window.
-
 ### customComponent: 
 
 You can add your own loading icon, text or React component to show at the screen meanwhile your web is loading. 

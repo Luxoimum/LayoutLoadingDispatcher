@@ -43,7 +43,13 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var useStyles = (0, _styles.makeStyles)(function (theme) {
   return {
     grid: {
-      backgroundColor: theme.palette.primary.contrastText
+      backgroundColor: theme.palette.primary.contrastText,
+      float: 'left',
+      position: 'relative',
+      top: 0,
+      bottom: 0,
+      left: 0,
+      right: 0
     }
   };
 });
@@ -130,9 +136,5 @@ function LayoutProvider(_ref) {
     alignItems: "center"
   }, /*#__PURE__*/_react.default.createElement(_core.Grid, {
     item: true
-  }, customComponent || /*#__PURE__*/_react.default.createElement(_spinner.Spinner, null))), /*#__PURE__*/_react.default.createElement("div", {
-    style: {
-      opacity: 0
-    }
-  }, children)) : children);
+  }, customComponent || /*#__PURE__*/_react.default.createElement(_spinner.Spinner, null))), /*#__PURE__*/_react.default.createElement("div", null, children)) : children);
 }

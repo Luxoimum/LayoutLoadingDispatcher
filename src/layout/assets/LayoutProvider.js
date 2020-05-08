@@ -13,11 +13,12 @@ const useStyles = makeStyles(theme => ({
   grid: {
     backgroundColor: theme.palette.primary.contrastText,
     float: 'left',
-    position: 'relative',
+    position: 'absolute',
     top: 0,
     bottom: 0,
     left: 0,
     right: 0,
+    zIndex: 10000
   },
 }));
 
@@ -27,19 +28,13 @@ export const LayoutContext = createContext({
   setLayoutState: () => {}
 });
 
-export default function LayoutProvider({ children, state, customComponent, resize }) {
+export default function LayoutProvider({ children, state, customComponent}) {
   const [layout, setLayout] = useState({
     state: state || false,
     isLoading: true,
     setLayoutState: setLayoutState
   });
-  const [height, setHeight] = useState(window.innerHeight);
   const classes = useStyles()
-
-  useEffect(() => {
-    resize &&
-      window.addEventListener("resize", () => setHeight(window.innerHeight));
-  }, [resize]);
 
   function setLayoutState() {
     const [ primary, secondary] = arguments
@@ -85,7 +80,6 @@ export default function LayoutProvider({ children, state, customComponent, resiz
         <Fragment>
           <Grid
             className={classes.grid}
-            style={{ height: height }}
             container
             justify="center"
             alignItems="center"
