@@ -36,25 +36,41 @@ export default function LayoutProvider({ children, state, customComponent, resiz
       window.addEventListener("resize", () => setHeight(window.innerHeight));
   }, [resize]);
 
-  function setLayoutState(elem, value) {
-    layout.state[elem] !== value &&
+  function setLayoutState() {
+    const [ primary, secondary] = arguments
+    typeof layout.state === 'object' &&
+    layout.state[primary] !== secondary &&
       setLayout(prevState => ({
         ...prevState,
         state: {
           ...prevState.state,
-          [elem]: value
+          [primary]: secondary
         }
       }));
+    typeof layout.state === 'boolean' &&
+      setLayout(prevState => ({
+        ...prevState,
+        state: primary
+      }));
+
   }
 
   useEffect(() => {
-    const isLoading = !Object.keys(layout.state).reduce(
-      (acc, curr) => acc && layout.state[curr],
-      true
-    );
+    let isLoading;
+    if (typeof layout.state === 'object') {
+      isLoading = !Object.keys(layout.state).reduce(
+        (acc, curr) => acc && layout.state[curr],
+        true
+      );
+    } else if (typeof layout.state === 'boolean') {
+      isLoading = !layout.state;
+    } else {
+      console.warn('Excpected value of the state of LayoutProvider to be an object or boolean');
+      console.trace();
+    }
     setLayout(prevState => ({
       ...prevState,
-      isLoading
+      isLoading: isLoading === undefined ? true : isLoading
     }));
   }, [layout.state]);
 
