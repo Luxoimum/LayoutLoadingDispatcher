@@ -11,7 +11,13 @@ import "./styles.css";
 
 const useStyles = makeStyles(theme => ({
   grid: {
-    backgroundColor: theme.palette.primary.contrastText
+    backgroundColor: theme.palette.primary.contrastText,
+    float: 'left',
+    position: 'relative',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
   },
 }));
 
@@ -86,7 +92,7 @@ export default function LayoutProvider({ children, state, customComponent, resiz
           >
             <Grid item>{customComponent || <Spinner/>}</Grid>
           </Grid>
-          <div style={{opacity: 0}} >{children}</div>
+          <div>{children}</div>
         </Fragment>
       ) : (
         children
