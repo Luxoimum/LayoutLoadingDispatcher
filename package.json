@@ -13,8 +13,8 @@
   "main": "layout/index.js",
   "dependencies": {
     "@material-ui/core": "4.9.13",
-    "react": "16.12.0",
-    "react-dom": "16.12.0"
+    "react": "16.10.2",
+    "react-dom": "16.10.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
@@ -32,7 +32,7 @@
   "scripts": {
     "build": "webpack --mode production",
     "dev": "webpack --mode development && babel src/layout -d dist/layout",
-    "prepublish": "babel src/layout -d layout",
+    "prepublishOnly": "babel src/layout -d layout",
     "help": "babel --help"
   },
   "browserslist": [

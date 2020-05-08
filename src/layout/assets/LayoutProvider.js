@@ -15,11 +15,11 @@ export const LayoutContext = createContext({
 
 export default function LayoutProvider({ children, state, customComponent, resize }) {
   console.log('LayoutProvider', state)
-  const [layout, setLayout] = [{isLoading: true, state: true}, () => console.log('setLayout')]/*useState({
+  const [layout, setLayout] = /*[{isLoading: true, state: true}, () => console.log('setLayout')]*/useState({
     state: state || false,
     isLoading: true,
     setLayoutState: setLayoutState
-  });*/
+  });
   console.log('A_LayoutProviderRender')
   const [height, setHeight] = useState(window.innerHeight);
   console.log('B_LayoutProviderRender')
