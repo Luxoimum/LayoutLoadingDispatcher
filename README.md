@@ -3,7 +3,7 @@ Layout loading dispatcher offers a provider and a hook to easy manage the layout
 
 ## Demo:
 
-You can find a demo in the "./demo" directory (im working to making it functional in the github static webpage) you can find it in codesandbox too in this link:
+You'll find a demo in the "./demo" directory. You can work with by cloning it or you can try it in codesandbox in this link:
 
 [link to codesandbox demo!](https://codesandbox.io/s/lld-demo-1-oc4qn)
 
@@ -55,7 +55,7 @@ This functionality gives you powerful control of the loading screens regardless 
 
 ### resize:
 
-Keep you Spinner in the middle of the screen independently if you resize the window.
+Adjust the loading component to the center of the screen independently if you resize the window.
 
 ### customComponent: 
 

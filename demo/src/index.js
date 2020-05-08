@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import { Demo1 } from "./demo1";
+import Demo from "./App";
 import { Typography, List, ListItem, ListItemText } from "@material-ui/core";
 
 const rootElement = document.getElementById("root");
@@ -13,16 +13,18 @@ function App() {
   };
   const Menu = () => (
     <div>
-      <Typography variant="h4">Select options below to see demos</Typography>
+      <Typography align="center" variant="h5">
+        Click option below to see demos (just one for now)
+      </Typography>
       <List>
         <ListItem button dense onClick={selectOption(1)}>
-          <ListItemText primary="demo 1" />
+          <ListItemText primary="Demo 1: Countdown loading" />
         </ListItem>
       </List>
     </div>
   );
   const optionSelected = {
-    1: <Demo1 />
+    1: <Demo />
   };
   return option ? optionSelected[option] : <Menu />;
 }

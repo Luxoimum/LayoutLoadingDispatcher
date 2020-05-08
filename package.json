@@ -4,6 +4,14 @@
   "description": "Loading layout dispatcher offer a provider and hooks to easy manage the loading screen in a website made with React",
   "keywords": [],
   "main": "layout/index.js",
+  "keywords": [
+    "react",
+    "react-component",
+    "loading-component",
+    "react-hooks",
+    "layout",
+    "material-ui"
+  ],
   "dependencies": {
     "@material-ui/core": "4.9.13",
     "react": "16.12.0",
