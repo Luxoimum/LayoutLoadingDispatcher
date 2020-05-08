@@ -12,6 +12,8 @@ var _core = require("@material-ui/core");
 
 var _styles = require("@material-ui/core/styles");
 
+var _spinner = require("./spinner");
+
 require("./styles.css");
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
@@ -41,7 +43,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var useStyles = (0, _styles.makeStyles)(function (theme) {
   return {
     grid: {
-      margin: 0,
       backgroundColor: theme.palette.primary.contrastText
     }
   };
@@ -129,7 +130,7 @@ function LayoutProvider(_ref) {
     alignItems: "center"
   }, /*#__PURE__*/_react.default.createElement(_core.Grid, {
     item: true
-  }, customComponent || 'Loading')), /*#__PURE__*/_react.default.createElement("div", {
+  }, customComponent || /*#__PURE__*/_react.default.createElement(_spinner.Spinner, null))), /*#__PURE__*/_react.default.createElement("div", {
     style: {
       opacity: 0
     }

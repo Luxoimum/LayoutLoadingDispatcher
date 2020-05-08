@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Typography } from "@material-ui/core";
+import '@babel/polyfill'
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));

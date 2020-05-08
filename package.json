@@ -12,6 +12,7 @@
   ],
   "main": "layout/index.js",
   "dependencies": {
+    "@babel/polyfill": "^7.8.7",
     "@material-ui/core": "4.9.13",
     "react": "16.10.2",
     "react-dom": "16.10.2"
