@@ -13,7 +13,9 @@
   "main": "layout/index.js",
   "dependencies": {
     "@babel/polyfill": "^7.8.7",
-    "@material-ui/core": "4.9.13",
+    "@material-ui/core": "4.9.13"
+  },
+  "peerDependencies": {
     "react": "^16.8.0",
     "react-dom": "^16.8.0"
   },
