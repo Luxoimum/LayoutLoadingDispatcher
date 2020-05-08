@@ -41,6 +41,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var useStyles = (0, _styles.makeStyles)(function (theme) {
   return {
     grid: {
+      margin: 0,
       backgroundColor: theme.palette.primary.contrastText
     }
   };

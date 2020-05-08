@@ -6,11 +6,11 @@ import React, {
 } from 'react'
 import { Grid } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles'
+import { Spinner } from './spinner'
 import "./styles.css";
 
 const useStyles = makeStyles(theme => ({
   grid: {
-    margin: 0,
     backgroundColor: theme.palette.primary.contrastText
   },
 }));
@@ -84,7 +84,7 @@ export default function LayoutProvider({ children, state, customComponent, resiz
             justify="center"
             alignItems="center"
           >
-            <Grid item>{customComponent || 'Loading'}</Grid>
+            <Grid item>{customComponent || <Spinner/>}</Grid>
           </Grid>
           <div style={{opacity: 0}} >{children}</div>
         </Fragment>
