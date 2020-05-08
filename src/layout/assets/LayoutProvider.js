@@ -21,8 +21,10 @@ export default function LayoutProvider({ children, state, customComponent, resiz
     isLoading: true,
     setLayoutState: setLayoutState
   });
+  console.log('A_LayoutProviderRender')
   // const [height, setHeight] = useState(window.innerHeight);
   const classes = useStyles();
+  console.log('B_LayoutProviderRender')
 
   /*useEffect(() => {
     resize &&
@@ -47,6 +49,7 @@ export default function LayoutProvider({ children, state, customComponent, resiz
       }));
 
   }
+  console.log('C_LayoutProviderRender')
 
   /*useEffect(() => {
     let isLoading;
@@ -66,7 +69,6 @@ export default function LayoutProvider({ children, state, customComponent, resiz
       isLoading: isLoading === undefined ? true : isLoading
     }));
   }, [layout]);*/
-  console.log('LayoutProviderRender')
   return (
     <LayoutContext.Provider value={layout}>
       {layout.isLoading ? (
