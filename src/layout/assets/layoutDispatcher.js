@@ -1,13 +1,11 @@
 import React, {
   createContext,
-  useContext,
   useState,
   useEffect,
   Fragment
 } from "react";
 import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import { Spinner } from "./spinner";
 import "./styles.css";
 
 const useStyles = makeStyles(theme => ({
@@ -84,7 +82,7 @@ export default function LayoutProvider({ children, state, customComponent, resiz
             justify="center"
             alignItems="center"
           >
-            <Grid item>{customComponent || <Spinner />}</Grid>
+            <Grid item>{customComponent || 'Loading'}</Grid>
           </Grid>
           <div className={classes.contentHide}>{children}</div>
         </Fragment>
