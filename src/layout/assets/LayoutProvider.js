@@ -5,14 +5,7 @@ import React, {
   Fragment
 } from 'react'
 import { Grid } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
 import "./styles.css";
-
-const useStyles = makeStyles(() => ({
-  contentHide: {
-    opacity: 0
-  }
-}));
 
 export const LayoutContext = createContext({
   state: false,
@@ -22,20 +15,19 @@ export const LayoutContext = createContext({
 
 export default function LayoutProvider({ children, state, customComponent, resize }) {
   console.log('LayoutProvider', state)
-  const [layout, setLayout] = Array(2);/*useState({
+  const [layout, setLayout] = useState({
     state: state || false,
     isLoading: true,
     setLayoutState: setLayoutState
-  });*/
+  });
   console.log('A_LayoutProviderRender')
-  // const [height, setHeight] = useState(window.innerHeight);
-  // const classes = useStyles();
+  const [height, setHeight] = useState(window.innerHeight);
   console.log('B_LayoutProviderRender')
 
-  /*useEffect(() => {
+  useEffect(() => {
     resize &&
       window.addEventListener("resize", () => setHeight(window.innerHeight));
-  }, [resize]);*/
+  }, [resize]);
 
   function setLayoutState() {
     const [ primary, secondary] = arguments
@@ -57,7 +49,7 @@ export default function LayoutProvider({ children, state, customComponent, resiz
   }
   console.log('C_LayoutProviderRender')
 
-  /*useEffect(() => {
+  useEffect(() => {
     let isLoading;
     if (typeof layout.state === 'object') {
       isLoading = !Object.keys(layout.state).reduce(
@@ -74,14 +66,14 @@ export default function LayoutProvider({ children, state, customComponent, resiz
       ...prevState,
       isLoading: isLoading === undefined ? true : isLoading
     }));
-  }, [layout]);*/
-  /*className={classes.contentHide}*/
+  }, [layout]);
+
   return (
     <LayoutContext.Provider value={layout}>
       {layout.isLoading ? (
         <Fragment>
           <Grid
-            style={{ height: window.innerHeight }}
+            style={{ height: height }}
             container
             justify="center"
             alignItems="center"
