@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 Object.defineProperty(exports, "LayoutProvider", {
   enumerable: true,
   get: function get() {
-    return _layoutDispatcher.default;
+    return _LayoutProvider.default;
   }
 });
 Object.defineProperty(exports, "useLayout", {
@@ -16,7 +16,7 @@ Object.defineProperty(exports, "useLayout", {
   }
 });
 
-var _layoutDispatcher = _interopRequireDefault(require("./assets/layoutDispatcher"));
+var _LayoutProvider = _interopRequireDefault(require("./assets/LayoutProvider"));
 
 var _useLayout = _interopRequireDefault(require("./assets/useLayout"));
 

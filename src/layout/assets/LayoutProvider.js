@@ -15,8 +15,9 @@ const useStyles = makeStyles(() => ({
 }));
 
 export default function LayoutProvider({ children, state, customComponent, resize }) {
+  console.log('LayoutProvider', state)
   const [layout, setLayout] = useState({
-    state: state || {},
+    state: state || false,
     isLoading: true,
     setLayoutState: setLayoutState
   });
@@ -47,7 +48,7 @@ export default function LayoutProvider({ children, state, customComponent, resiz
 
   }
 
-  useEffect(() => {
+  /*useEffect(() => {
     let isLoading;
     if (typeof layout.state === 'object') {
       isLoading = !Object.keys(layout.state).reduce(
@@ -64,8 +65,8 @@ export default function LayoutProvider({ children, state, customComponent, resiz
       ...prevState,
       isLoading: isLoading === undefined ? true : isLoading
     }));
-  }, [layout]);
-
+  }, [layout]);*/
+  console.log('LayoutProviderRender')
   return (
     <LayoutContext.Provider value={layout}>
       {layout.isLoading ? (
