@@ -5,7 +5,14 @@ import React, {
   Fragment
 } from 'react'
 import { Grid } from "@material-ui/core";
+import { makeStyles } from '@material-ui/core/styles'
 import "./styles.css";
+
+const useStyles = makeStyles(theme => ({
+  grid: {
+    backgroundColor: theme.palette.primary.contrastText
+  },
+}));
 
 export const LayoutContext = createContext({
   state: false,
@@ -20,6 +27,7 @@ export default function LayoutProvider({ children, state, customComponent, resiz
     setLayoutState: setLayoutState
   });
   const [height, setHeight] = useState(window.innerHeight);
+  const classes = useStyles()
 
   useEffect(() => {
     resize &&
@@ -69,6 +77,7 @@ export default function LayoutProvider({ children, state, customComponent, resiz
       {layout.isLoading ? (
         <Fragment>
           <Grid
+            className={classes.grid}
             style={{ height: height }}
             container
             justify="center"

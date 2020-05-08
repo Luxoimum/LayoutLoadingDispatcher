@@ -48,11 +48,8 @@ function LayoutProvider(_ref) {
       state = _ref.state,
       customComponent = _ref.customComponent,
       resize = _ref.resize;
-  console.log('LayoutProvider', state);
 
-  var _useState =
-  /*[{isLoading: true, state: true}, () => console.log('setLayout')]*/
-  (0, _react.useState)({
+  var _useState = (0, _react.useState)({
     state: state || false,
     isLoading: true,
     setLayoutState: setLayoutState
@@ -61,14 +58,11 @@ function LayoutProvider(_ref) {
       layout = _useState2[0],
       setLayout = _useState2[1];
 
-  console.log('A_LayoutProviderRender');
-
   var _useState3 = (0, _react.useState)(window.innerHeight),
       _useState4 = _slicedToArray(_useState3, 2),
       height = _useState4[0],
       setHeight = _useState4[1];
 
-  console.log('B_LayoutProviderRender');
   (0, _react.useEffect)(function () {
     resize && window.addEventListener("resize", function () {
       return setHeight(window.innerHeight);
@@ -92,7 +86,6 @@ function LayoutProvider(_ref) {
     });
   }
 
-  console.log('C_LayoutProviderRender');
   (0, _react.useEffect)(function () {
     var isLoading;
 
@@ -112,7 +105,7 @@ function LayoutProvider(_ref) {
         isLoading: isLoading === undefined ? true : isLoading
       });
     });
-  }, [layout]);
+  }, [layout.state]);
   return /*#__PURE__*/_react.default.createElement(LayoutContext.Provider, {
     value: layout
   }, layout.isLoading ? /*#__PURE__*/_react.default.createElement(_react.Fragment, null, /*#__PURE__*/_react.default.createElement(_core.Grid, {
