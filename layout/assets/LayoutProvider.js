@@ -71,8 +71,8 @@ function LayoutProvider(_ref) {
 
 
   console.log('A_LayoutProviderRender'); // const [height, setHeight] = useState(window.innerHeight);
+  // const classes = useStyles();
 
-  var classes = useStyles();
   console.log('B_LayoutProviderRender');
   /*useEffect(() => {
     resize &&
@@ -116,6 +116,8 @@ function LayoutProvider(_ref) {
     }));
   }, [layout]);*/
 
+  /*className={classes.contentHide}*/
+
   return /*#__PURE__*/_react.default.createElement(LayoutContext.Provider, {
     value: layout
   }, layout.isLoading ? /*#__PURE__*/_react.default.createElement(_react.Fragment, null, /*#__PURE__*/_react.default.createElement(_core.Grid, {
@@ -128,6 +130,8 @@ function LayoutProvider(_ref) {
   }, /*#__PURE__*/_react.default.createElement(_core.Grid, {
     item: true
   }, customComponent || 'Loading')), /*#__PURE__*/_react.default.createElement("div", {
-    className: classes.contentHide
+    style: {
+      opacity: 0
+    }
   }, children)) : children);
 }

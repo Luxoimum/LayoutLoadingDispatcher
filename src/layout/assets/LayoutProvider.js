@@ -75,6 +75,7 @@ export default function LayoutProvider({ children, state, customComponent, resiz
       isLoading: isLoading === undefined ? true : isLoading
     }));
   }, [layout]);*/
+  /*className={classes.contentHide}*/
   return (
     <LayoutContext.Provider value={layout}>
       {layout.isLoading ? (
@@ -87,7 +88,7 @@ export default function LayoutProvider({ children, state, customComponent, resiz
           >
             <Grid item>{customComponent || 'Loading'}</Grid>
           </Grid>
-          <div style={{opacity: 0}} {/*className={classes.contentHide}*/}>{children}</div>
+          <div style={{opacity: 0}} >{children}</div>
         </Fragment>
       ) : (
         children
