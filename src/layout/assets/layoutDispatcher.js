@@ -1,24 +1,18 @@
 import React, {
-  createContext,
   useState,
   useEffect,
   Fragment
 } from "react";
 import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import LayoutContext from './LayoutContext';
 import "./styles.css";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
   contentHide: {
     opacity: 0
   }
 }));
-
-export const LayoutContext = createContext({
-  state: {},
-  isLoading: true,
-  setLayoutState: () => {}
-});
 
 export default function LayoutProvider({ children, state, customComponent, resize }) {
   const [layout, setLayout] = useState({
@@ -26,13 +20,13 @@ export default function LayoutProvider({ children, state, customComponent, resiz
     isLoading: true,
     setLayoutState: setLayoutState
   });
-  const [height, setHeight] = useState(window.innerHeight);
+  // const [height, setHeight] = useState(window.innerHeight);
   const classes = useStyles();
 
-  useEffect(() => {
+  /*useEffect(() => {
     resize &&
       window.addEventListener("resize", () => setHeight(window.innerHeight));
-  }, [resize]);
+  }, [resize]);*/
 
   function setLayoutState() {
     const [ primary, secondary] = arguments
@@ -70,14 +64,14 @@ export default function LayoutProvider({ children, state, customComponent, resiz
       ...prevState,
       isLoading: isLoading === undefined ? true : isLoading
     }));
-  }, [layout.state]);
+  }, [layout]);
 
   return (
     <LayoutContext.Provider value={layout}>
       {layout.isLoading ? (
         <Fragment>
           <Grid
-            style={{ height: height }}
+            style={{ height: window.innerHeight }}
             container
             justify="center"
             alignItems="center"
