@@ -29,7 +29,7 @@ export default function LayoutProvider({ children, state, customComponent, resiz
   });*/
   console.log('A_LayoutProviderRender')
   // const [height, setHeight] = useState(window.innerHeight);
-  const classes = useStyles();
+  // const classes = useStyles();
   console.log('B_LayoutProviderRender')
 
   /*useEffect(() => {
@@ -87,7 +87,7 @@ export default function LayoutProvider({ children, state, customComponent, resiz
           >
             <Grid item>{customComponent || 'Loading'}</Grid>
           </Grid>
-          <div className={classes.contentHide}>{children}</div>
+          <div style={{opacity: 0}} {/*className={classes.contentHide}*/}>{children}</div>
         </Fragment>
       ) : (
         children
