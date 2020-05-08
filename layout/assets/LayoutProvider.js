@@ -10,8 +10,6 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _core = require("@material-ui/core");
 
-var _styles = require("@material-ui/core/styles");
-
 require("./styles.css");
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
@@ -38,13 +36,6 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-var useStyles = (0, _styles.makeStyles)(function () {
-  return {
-    contentHide: {
-      opacity: 0
-    }
-  };
-});
 var LayoutContext = (0, _react.createContext)({
   state: false,
   isLoading: true,
@@ -59,25 +50,28 @@ function LayoutProvider(_ref) {
       resize = _ref.resize;
   console.log('LayoutProvider', state);
 
-  var _Array = Array(2),
-      _Array2 = _slicedToArray(_Array, 2),
-      layout = _Array2[0],
-      setLayout = _Array2[1];
-  /*useState({
-  state: state || false,
-  isLoading: true,
-  setLayoutState: setLayoutState
-  });*/
+  var _useState = (0, _react.useState)({
+    state: state || false,
+    isLoading: true,
+    setLayoutState: setLayoutState
+  }),
+      _useState2 = _slicedToArray(_useState, 2),
+      layout = _useState2[0],
+      setLayout = _useState2[1];
 
+  console.log('A_LayoutProviderRender');
 
-  console.log('A_LayoutProviderRender'); // const [height, setHeight] = useState(window.innerHeight);
-  // const classes = useStyles();
+  var _useState3 = (0, _react.useState)(window.innerHeight),
+      _useState4 = _slicedToArray(_useState3, 2),
+      height = _useState4[0],
+      setHeight = _useState4[1];
 
   console.log('B_LayoutProviderRender');
-  /*useEffect(() => {
-    resize &&
-      window.addEventListener("resize", () => setHeight(window.innerHeight));
-  }, [resize]);*/
+  (0, _react.useEffect)(function () {
+    resize && window.addEventListener("resize", function () {
+      return setHeight(window.innerHeight);
+    });
+  }, [resize]);
 
   function setLayoutState() {
     var _arguments = Array.prototype.slice.call(arguments),
@@ -97,32 +91,31 @@ function LayoutProvider(_ref) {
   }
 
   console.log('C_LayoutProviderRender');
-  /*useEffect(() => {
-    let isLoading;
-    if (typeof layout.state === 'object') {
-      isLoading = !Object.keys(layout.state).reduce(
-        (acc, curr) => acc && layout.state[curr],
-        true
-      );
+  (0, _react.useEffect)(function () {
+    var isLoading;
+
+    if (_typeof(layout.state) === 'object') {
+      isLoading = !Object.keys(layout.state).reduce(function (acc, curr) {
+        return acc && layout.state[curr];
+      }, true);
     } else if (typeof layout.state === 'boolean') {
       isLoading = !layout.state;
     } else {
       console.error('Excpected value of the state of LayoutProvider to be an object or boolean');
       console.trace();
     }
-    setLayout(prevState => ({
-      ...prevState,
-      isLoading: isLoading === undefined ? true : isLoading
-    }));
-  }, [layout]);*/
 
-  /*className={classes.contentHide}*/
-
+    setLayout(function (prevState) {
+      return _objectSpread(_objectSpread({}, prevState), {}, {
+        isLoading: isLoading === undefined ? true : isLoading
+      });
+    });
+  }, [layout]);
   return /*#__PURE__*/_react.default.createElement(LayoutContext.Provider, {
     value: layout
   }, layout.isLoading ? /*#__PURE__*/_react.default.createElement(_react.Fragment, null, /*#__PURE__*/_react.default.createElement(_core.Grid, {
     style: {
-      height: window.innerHeight
+      height: height
     },
     container: true,
     justify: "center",
