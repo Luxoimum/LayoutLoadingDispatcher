@@ -1,11 +1,11 @@
 import React, {
   useState,
   useEffect,
+  createContext,
   Fragment
-} from "react";
+} from 'react'
 import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import LayoutContext from './LayoutContext';
 import "./styles.css";
 
 const useStyles = makeStyles(() => ({
@@ -14,13 +14,19 @@ const useStyles = makeStyles(() => ({
   }
 }));
 
+export const LayoutContext = createContext({
+  state: false,
+  isLoading: true,
+  setLayoutState: () => {}
+});
+
 export default function LayoutProvider({ children, state, customComponent, resize }) {
   console.log('LayoutProvider', state)
-  const [layout, setLayout] = useState({
+  const [layout, setLayout] = Array(2);/*useState({
     state: state || false,
     isLoading: true,
     setLayoutState: setLayoutState
-  });
+  });*/
   console.log('A_LayoutProviderRender')
   // const [height, setHeight] = useState(window.innerHeight);
   const classes = useStyles();
