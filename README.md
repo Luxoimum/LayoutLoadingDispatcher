@@ -18,6 +18,8 @@ You can get started by clonning the repository or executing:
 
 Import and use the component "LayoutProvider" in the root of your app by this way:
     
+    import { LayoutProvider } from '@luxoimum/layout-loading-dispatcher'
+    
     function MyLayoutManager () {
         return <LayoutProvider state={{app: false}}>
             //YourApp
@@ -34,7 +36,7 @@ Some examples of usefull initial states:
     
 You can change states to true when they're ready to use by importing "useLayout" hook and using "setLayoutState" function by this way:
 
-    import { useLayout } from '...'
+    import { useLayout } from '@luxoimum/layout-loading-dispatcher'
 
     // suppose an state = {{dataFetching: false}} in our LayoutProvider
     function App () {
