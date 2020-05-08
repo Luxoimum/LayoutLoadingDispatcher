@@ -19,6 +19,9 @@
     "react": "^16.8.0",
     "react-dom": "^16.8.0"
   },
+  "scripts": {
+    "build": "babel --config-file ../../babel.config.js --extensions \".js\" ./ --out-dir ../../layout"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Luxoimum/LayoutLoadingDispatcher.git"
