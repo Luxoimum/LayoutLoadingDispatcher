@@ -1,7 +1,5 @@
 "use strict";
 
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
@@ -27,6 +25,8 @@ function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (O
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
@@ -81,21 +81,40 @@ function LayoutProvider(_ref) {
     });
   }, [resize]);
 
-  function setLayoutState(elem, value) {
-    layout.state[elem] !== value && setLayout(function (prevState) {
+  function setLayoutState() {
+    var _arguments = Array.prototype.slice.call(arguments),
+        primary = _arguments[0],
+        secondary = _arguments[1];
+
+    _typeof(layout.state) === 'object' && layout.state[primary] !== secondary && setLayout(function (prevState) {
       return _objectSpread(_objectSpread({}, prevState), {}, {
-        state: _objectSpread(_objectSpread({}, prevState.state), {}, _defineProperty({}, elem, value))
+        state: _objectSpread(_objectSpread({}, prevState.state), {}, _defineProperty({}, primary, secondary))
+      });
+    });
+    typeof layout.state === 'boolean' && setLayout(function (prevState) {
+      return _objectSpread(_objectSpread({}, prevState), {}, {
+        state: primary
       });
     });
   }
 
   (0, _react.useEffect)(function () {
-    var isLoading = !Object.keys(layout.state).reduce(function (acc, curr) {
-      return acc && layout.state[curr];
-    }, true);
+    var isLoading;
+
+    if (_typeof(layout.state) === 'object') {
+      isLoading = !Object.keys(layout.state).reduce(function (acc, curr) {
+        return acc && layout.state[curr];
+      }, true);
+    } else if (typeof layout.state === 'boolean') {
+      isLoading = !layout.state;
+    } else {
+      console.warn('Excpected value of the state of LayoutProvider to be an object or boolean');
+      console.trace();
+    }
+
     setLayout(function (prevState) {
       return _objectSpread(_objectSpread({}, prevState), {}, {
-        isLoading: isLoading
+        isLoading: isLoading === undefined ? true : isLoading
       });
     });
   }, [layout.state]);

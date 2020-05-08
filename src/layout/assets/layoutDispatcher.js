@@ -65,7 +65,7 @@ export default function LayoutProvider({ children, state, customComponent, resiz
     } else if (typeof layout.state === 'boolean') {
       isLoading = !layout.state;
     } else {
-      console.warn('Excpected value of the state of LayoutProvider to be an object or boolean');
+      console.error('Excpected value of the state of LayoutProvider to be an object or boolean');
       console.trace();
     }
     setLayout(prevState => ({
