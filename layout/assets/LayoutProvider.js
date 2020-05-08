@@ -50,26 +50,23 @@ function LayoutProvider(_ref) {
       resize = _ref.resize;
   console.log('LayoutProvider', state);
 
-  var layout = {
+  var _useState =
+  /*[{isLoading: true, state: true}, () => console.log('setLayout')]*/
+  (0, _react.useState)({
+    state: state || false,
     isLoading: true,
-    state: true
-  },
-      setLayout = function setLayout() {
-    return console.log('setLayout');
-  };
-  /*useState({
-  state: state || false,
-  isLoading: true,
-  setLayoutState: setLayoutState
-  });*/
-
+    setLayoutState: setLayoutState
+  }),
+      _useState2 = _slicedToArray(_useState, 2),
+      layout = _useState2[0],
+      setLayout = _useState2[1];
 
   console.log('A_LayoutProviderRender');
 
-  var _useState = (0, _react.useState)(window.innerHeight),
-      _useState2 = _slicedToArray(_useState, 2),
-      height = _useState2[0],
-      setHeight = _useState2[1];
+  var _useState3 = (0, _react.useState)(window.innerHeight),
+      _useState4 = _slicedToArray(_useState3, 2),
+      height = _useState4[0],
+      setHeight = _useState4[1];
 
   console.log('B_LayoutProviderRender');
   (0, _react.useEffect)(function () {

@@ -14,15 +14,12 @@ export const LayoutContext = createContext({
 });
 
 export default function LayoutProvider({ children, state, customComponent, resize }) {
-  console.log('LayoutProvider', state)
-  const [layout, setLayout] = /*[{isLoading: true, state: true}, () => console.log('setLayout')]*/useState({
+  const [layout, setLayout] = useState({
     state: state || false,
     isLoading: true,
     setLayoutState: setLayoutState
   });
-  console.log('A_LayoutProviderRender')
   const [height, setHeight] = useState(window.innerHeight);
-  console.log('B_LayoutProviderRender')
 
   useEffect(() => {
     resize &&
@@ -47,7 +44,6 @@ export default function LayoutProvider({ children, state, customComponent, resiz
       }));
 
   }
-  console.log('C_LayoutProviderRender')
 
   useEffect(() => {
     let isLoading;
@@ -66,7 +62,7 @@ export default function LayoutProvider({ children, state, customComponent, resiz
       ...prevState,
       isLoading: isLoading === undefined ? true : isLoading
     }));
-  }, [layout]);
+  }, [layout.state]);
 
   return (
     <LayoutContext.Provider value={layout}>
