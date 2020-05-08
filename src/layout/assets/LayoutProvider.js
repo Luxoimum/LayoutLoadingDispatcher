@@ -10,6 +10,7 @@ import "./styles.css";
 
 const useStyles = makeStyles(theme => ({
   grid: {
+    margin: 0,
     backgroundColor: theme.palette.primary.contrastText
   },
 }));

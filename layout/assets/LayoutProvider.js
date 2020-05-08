@@ -10,6 +10,8 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _core = require("@material-ui/core");
 
+var _styles = require("@material-ui/core/styles");
+
 require("./styles.css");
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
@@ -36,6 +38,13 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
+var useStyles = (0, _styles.makeStyles)(function (theme) {
+  return {
+    grid: {
+      backgroundColor: theme.palette.primary.contrastText
+    }
+  };
+});
 var LayoutContext = (0, _react.createContext)({
   state: false,
   isLoading: true,
@@ -63,6 +72,7 @@ function LayoutProvider(_ref) {
       height = _useState4[0],
       setHeight = _useState4[1];
 
+  var classes = useStyles();
   (0, _react.useEffect)(function () {
     resize && window.addEventListener("resize", function () {
       return setHeight(window.innerHeight);
@@ -109,6 +119,7 @@ function LayoutProvider(_ref) {
   return /*#__PURE__*/_react.default.createElement(LayoutContext.Provider, {
     value: layout
   }, layout.isLoading ? /*#__PURE__*/_react.default.createElement(_react.Fragment, null, /*#__PURE__*/_react.default.createElement(_core.Grid, {
+    className: classes.grid,
     style: {
       height: height
     },
