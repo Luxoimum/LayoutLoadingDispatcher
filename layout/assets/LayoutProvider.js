@@ -45,11 +45,12 @@ var useStyles = (0, _styles.makeStyles)(function (theme) {
     grid: {
       backgroundColor: theme.palette.primary.contrastText,
       float: 'left',
-      position: 'relative',
+      position: 'absolute',
       top: 0,
       bottom: 0,
       left: 0,
-      right: 0
+      right: 0,
+      zIndex: 10000
     }
   };
 });
@@ -63,8 +64,7 @@ exports.LayoutContext = LayoutContext;
 function LayoutProvider(_ref) {
   var children = _ref.children,
       state = _ref.state,
-      customComponent = _ref.customComponent,
-      resize = _ref.resize;
+      customComponent = _ref.customComponent;
 
   var _useState = (0, _react.useState)({
     state: state || false,
@@ -75,17 +75,7 @@ function LayoutProvider(_ref) {
       layout = _useState2[0],
       setLayout = _useState2[1];
 
-  var _useState3 = (0, _react.useState)(window.innerHeight),
-      _useState4 = _slicedToArray(_useState3, 2),
-      height = _useState4[0],
-      setHeight = _useState4[1];
-
   var classes = useStyles();
-  (0, _react.useEffect)(function () {
-    resize && window.addEventListener("resize", function () {
-      return setHeight(window.innerHeight);
-    });
-  }, [resize]);
 
   function setLayoutState() {
     var _arguments = Array.prototype.slice.call(arguments),
@@ -128,9 +118,6 @@ function LayoutProvider(_ref) {
     value: layout
   }, layout.isLoading ? /*#__PURE__*/_react.default.createElement(_react.Fragment, null, /*#__PURE__*/_react.default.createElement(_core.Grid, {
     className: classes.grid,
-    style: {
-      height: height
-    },
     container: true,
     justify: "center",
     alignItems: "center"
